@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useUser } from "@clerk/clerk-react";
 import ScrollToTop from "../ui/ScrollToTop";
-import Header from "../Header";
+import Header from "../header";
 import ClientDashboard from "../dashboards/ClientDashboard";
 import MasterDashboard from "../dashboards/MasterDashboard";
 import AdminDashboard from "../dashboards/AdminDashboard";
