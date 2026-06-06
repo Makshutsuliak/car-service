@@ -2,7 +2,7 @@
 
 
 import React, { useState } from "react";
-import data from "@/components/shared/data"
+import data from "@/components/Shared/Data"
 
 const { Category, servicesData, faqData } = data;
 const ITEMS_PER_PAGE = 10;
