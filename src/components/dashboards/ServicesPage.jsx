@@ -21,7 +21,7 @@ const ServicesPage = () => {
       return;
     }
     try {
-      const res = await fetch(`/api/cars/search?query=${encodeURIComponent(cleaned)}`);
+      const res = await fetch(`${VITE_API_URL}/api/cars/search?query=${encodeURIComponent(cleaned)}`);
       const data = await res.json();
       setCars(data);
       setSelectedCar(null);      
@@ -34,7 +34,7 @@ const ServicesPage = () => {
 
   const fetchCarServices = async (carId) => {
     try {
-      const res = await fetch(`/api/cars/${carId}/services`);
+      const res = await fetch(`${VITE_API_URL}/api/cars/${carId}/services`);
       const data = await res.json();
 
       // залишаємо лише ті послуги, дата яких <= сьогодні
