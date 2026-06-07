@@ -26,7 +26,7 @@ function Info() {
                 <h1 className="z-20 text-center md:text-left 
                                text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
                                font-bold whitespace-normal rounded-md transition-colors 
-                               leading-relaxed">
+                               leading-extra">
                   Ремонтуємо швидко, якісно та доступно.
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
