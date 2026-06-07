@@ -5,24 +5,29 @@ import { eq, or, like } from "drizzle-orm";
 export default async function handler(req, res) {
   const { method, url, query, body } = req;
 
-  // GET /api/cars
-  if (url === "/api/cars" && method === "GET") {
+  // --- Отримати авто користувача ---
+  if (method === "GET" && url.endsWith("/api/cars")) {
+    const { userId } = query;
     try {
-      const response = await db.select().from(Cars).where(eq(Cars.user_id, query.userId));
+      const response = await db.select().from(Cars).where(eq(Cars.user_id, userId));
       return res.status(200).json(response);
-    } catch {
+    } catch (err) {
+      console.error("Помилка отримання авто:", err);
       return res.status(500).json({ error: "Помилка отримання авто" });
     }
   }
 
-  // POST /api/cars
-  if (url === "/api/cars" && method === "POST") {
+  // --- Додати авто ---
+  if (method === "POST" && url.endsWith("/api/cars")) {
     const { user_id, brand, model, plate, vin } = body;
     if (!user_id || !brand || !model || !plate || !vin) {
       return res.status(400).json({ error: "Всі поля обов'язкові" });
     }
     if (vin.length !== 17) {
       return res.status(400).json({ error: "VIN має містити рівно 17 символів" });
+    }
+    if (plate.length < 4) {
+      return res.status(400).json({ error: "Номерний знак занадто короткий" });
     }
     try {
       const existingCar = await db.select().from(Cars).where(or(eq(Cars.plate, plate), eq(Cars.vin, vin)));
@@ -31,54 +36,36 @@ export default async function handler(req, res) {
       }
       await db.insert(Cars).values({ user_id, brand, model, plate, vin });
       return res.status(200).json({ success: true });
-    } catch {
+    } catch (err) {
+      console.error("Помилка додавання авто:", err);
       return res.status(500).json({ error: "Помилка додавання авто" });
     }
   }
 
-  // GET /api/cars/search
-  if (url === "/api/cars/search" && method === "GET") {
+  // --- Пошук авто ---
+  if (method === "GET" && url.endsWith("/api/cars/search")) {
+    const { query: q } = query;
     try {
-      const response = await db.select().from(Cars).where(or(like(Cars.plate, `%${query.query}%`), like(Cars.vin, `%${query.query}%`)));
+      const response = await db.select().from(Cars).where(or(like(Cars.plate, `%${q}%`), like(Cars.vin, `%${q}%`)));
       return res.status(200).json(response);
-    } catch {
+    } catch (err) {
+      console.error("Помилка пошуку авто:", err);
       return res.status(500).json({ error: "Помилка пошуку авто" });
     }
   }
 
-  // GET /api/cars/:carId/services
-  if (url.startsWith("/api/cars/") && url.endsWith("/services") && method === "GET") {
+  // --- Послуги для авто ---
+  if (method === "GET" && url.includes("/api/cars/") && url.endsWith("/services")) {
+    const { carId } = query;
+    console.log("Incoming carId:", carId);
     try {
-      const response = await db.select().from(Services).where(eq(Services.carId, Number(query.carId)));
+      const response = await db.select().from(Services).where(eq(Services.carId, carId));
       return res.status(200).json(response);
-    } catch {
+    } catch (err) {
+      console.error("Помилка отримання послуг:", err);
       return res.status(500).json({ error: "Помилка отримання послуг" });
     }
   }
 
-  // GET /api/cars-with-services
-  if (url === "/api/cars-with-services" && method === "GET") {
-    try {
-      const response = await db
-        .select({
-          carId: Cars.id,
-          brand: Cars.brand,
-          model: Cars.model,
-          plate: Cars.plate,
-          vin: Cars.vin,
-          serviceName: Services.serviceName,
-          price: Services.price,
-          date: Services.date,
-          warranty_expires: Services.warranty_expires,
-          description: Services.description,
-        })
-        .from(Cars)
-        .leftJoin(Services, eq(Cars.id, Services.carId));
-      return res.status(200).json(response);
-    } catch {
-      return res.status(500).json({ error: "Помилка отримання авто з послугами" });
-    }
-  }
-
-  return res.status(404).json({ error: "Route not found" });
+  return res.status(405).json({ error: "Method not allowed" });
 }
