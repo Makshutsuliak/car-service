@@ -6,12 +6,17 @@ export default async function handler(req, res) {
   const { method, query } = req;
   const { id } = query;
 
+  // Логування вхідних даних
+  console.log("Incoming request:", { method, query, id });
+
   if (method === "GET") {
     try {
       const response = await db.select().from(Users).where(eq(Users.id, id));
+      console.log("DB response:", response);
       return res.status(200).json(response[0] || null);
     } catch (err) {
-      return res.status(500).json({ error: "Помилка отримання користувача" });
+      console.error("Помилка отримання користувача:", err);
+      return res.status(500).json({ error: "Помилка отримання користувача", details: err.message });
     }
   }
 
