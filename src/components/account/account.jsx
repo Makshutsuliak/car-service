@@ -30,7 +30,7 @@ const Account = () => {
 
   const fetchUserInfo = async () => {
     try {
-      const res = await fetch(`/api/user/${user.id}`);
+      const res = await fetch(`${VITE_API_URL}}/api/user/${user.id}`);
       const data = await res.json();
       setUserInfo(data);
     } catch (error) {
@@ -40,7 +40,7 @@ const Account = () => {
 
   const fetchUserCars = async () => {
     try {
-      const res = await fetch(`/api/cars?userId=${user.id}`);
+      const res = await fetch(`${VITE_API_URL}/api/cars?userId=${user.id}`);
       const data = await res.json();
       setCars(data);
     } catch (error) {
@@ -51,7 +51,7 @@ const Account = () => {
   const handleAddCar = async () => {
     if (!newCar.brand || !newCar.model || !newCar.plate) return;
     try {
-      const res = await fetch("/api/cars", {
+      const res = await fetch("${VITE_API_URL}/api/cars", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: user.id, ...newCar }),
@@ -74,7 +74,7 @@ const Account = () => {
 
   const fetchCarServices = async (carId) => {
     try {
-      const res = await fetch(`/api/cars/${carId}/services`);
+      const res = await fetch(`${VITE_API_URL}/api/cars/${carId}/services`);
       const data = await res.json();
       setServices(data);
     } catch (error) {
