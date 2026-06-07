@@ -8,7 +8,7 @@ export default {
   theme: {
   	extend: {
          lineHeight: {
-      'extra': '15',   
+      'extra': '45',   
     },
   		borderRadius: {
   			lg: 'var(--radius)',
