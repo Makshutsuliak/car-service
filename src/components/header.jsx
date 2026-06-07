@@ -8,6 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [message, setMessage] = useState('');
   const { user, isSignedIn } = useUser();
+const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     if (isSignedIn && user) {
@@ -18,8 +19,8 @@ const Header = () => {
   const fetchUser = async () => {
     try {
       
-      console.log(import.meta.env.VITE_API_URL);
-      const res = await fetch(`${VITE_API_URL}/api/user/${user.id}`);
+
+const res = await fetch(`${API_URL}/api/user/${user.id}`);
       const data = await res.json();
 
       if (!data) {
@@ -35,17 +36,18 @@ const Header = () => {
       const userEmail = user.emailAddresses && user.emailAddresses[0]?.emailAddress;
       if (!userEmail) throw new Error('Email is not available');
 
-      const res = await fetch("${VITE_API_URL}/api/user", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: user.id,
-          lastname: user.lastName,
-          firstname: user.firstName,
-          email: userEmail,
-          user_type: "0",
-        }),
-      });
+      const res = await fetch(`${API_URL}/api/user`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    id: user.id,
+    lastname: user.lastName,
+    firstname: user.firstName,
+    email: userEmail,
+    user_type: "0",
+  }),
+});
+
 
       if (res.ok) {
         setMessage("Ваші дані успішно відправлено!");
