@@ -24,7 +24,7 @@ function Info() {
   <div className="flex flex-col md:flex-row items-center gap-4 relative min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
     <h1 className="z-20 text-center md:text-left 
                    text-sm sm:text-base md:text-lg lg:text-xl  
-                   font-medium whitespace-normal rounded-md transition-colors 
+                   font-sm whitespace-normal rounded-md transition-colors 
                    leading-loose tracking-wide font-sans">
       Ремонтуємо швидко, якісно та доступно.
     </h1>
@@ -51,7 +51,7 @@ function Info() {
                 </div>
     <h1 className="z-20 text-center md:text-right 
                    text-sm sm:text-base md:text-lg lg:text-xl  
-                   font-medium whitespace-normal rounded-md transition-colors 
+                   font-sm whitespace-normal rounded-md transition-colors 
                    leading-loose tracking-wide font-sans">
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
@@ -62,7 +62,7 @@ function Info() {
                <div className="flex flex-col md:flex-row items-center gap-4 relative min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
     <h1 className="z-20 text-center md:text-left 
                    text-sm sm:text-base md:text-lg lg:text-xl 
-                   font-medium whitespace-normal rounded-md transition-colors 
+                   font-sm whitespace-normal rounded-md transition-colors 
                    leading-loose tracking-wide font-sans">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
