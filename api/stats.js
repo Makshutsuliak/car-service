@@ -1,4 +1,4 @@
-import { getStats } from "../queries.js";
+import { getStats } from "../configs/queries.js";
 
 export default async function handler(req, res) {
   if (req.method === "GET") {
