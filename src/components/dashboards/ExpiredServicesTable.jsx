@@ -9,7 +9,7 @@ const ExpiredServicesTable = () => {
     const fetchExpired = async () => {
       setLoading(true);
       try {
-        const res = await fetch("/api/services/expired");
+        const res = await fetch("${VITE_API_URL}/api/services/expired");
         const data = await res.json();
         if (data.error) {
           setError(data.error);
