@@ -17,7 +17,9 @@ const Header = () => {
 
   const fetchUser = async () => {
     try {
-      const res = await fetch(`/api/user/${user.id}`);
+      
+      console.log(import.meta.env.VITE_API_URL);
+      const res = await fetch(`${VITE_API_URL}/api/user/${user.id}`);
       const data = await res.json();
 
       if (!data) {
@@ -33,7 +35,7 @@ const Header = () => {
       const userEmail = user.emailAddresses && user.emailAddresses[0]?.emailAddress;
       if (!userEmail) throw new Error('Email is not available');
 
-      const res = await fetch("/api/user", {
+      const res = await fetch("${VITE_API_URL}/api/user", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
