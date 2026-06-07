@@ -1,14 +1,14 @@
 import { db } from "../configs/index.js";
 import { Services, Cars, Users } from "../configs/schema.js";
-import { eq, or, like, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 
 export default async function handler(req, res) {
   const { method, url, query, body } = req;
 
   // --- Додавання послуги ---
-  if (method === "POST" && url === "/api/services") {
+  if (method === "POST" && url.endsWith("/api/services")) {
+    const { userId, carId, serviceName, price, warrantyMonths, date, description } = body;
     try {
-      const { userId, carId, serviceName, price, warrantyMonths, date, description } = body;
       const warrantyDate = new Date();
       warrantyDate.setMonth(warrantyDate.getMonth() + warrantyMonths);
 
@@ -23,13 +23,14 @@ export default async function handler(req, res) {
       });
 
       return res.status(200).json({ success: true });
-    } catch {
+    } catch (err) {
+      console.error("Помилка додавання послуги:", err);
       return res.status(500).json({ error: "Помилка додавання послуги" });
     }
   }
 
-  // --- Редагування / Видалення ---
-  if (url.startsWith("/api/services/") && method === "PUT") {
+  // --- Редагування послуги ---
+  if (method === "PUT" && url.includes("/api/services/")) {
     const id = query.id;
     try {
       const { serviceName, price, warranty_expires, date, description } = body;
@@ -43,23 +44,25 @@ export default async function handler(req, res) {
         })
         .where(eq(Services.id, id));
       return res.status(200).json({ success: true });
-    } catch {
+    } catch (err) {
+      console.error("Помилка редагування послуги:", err);
       return res.status(500).json({ error: "Помилка редагування послуги" });
     }
   }
 
-  if (url.startsWith("/api/services/") && method === "DELETE") {
+  // --- Видалення послуги ---
+  if (method === "DELETE" && url.includes("/api/services/")) {
     const id = query.id;
     try {
       await db.delete(Services).where(eq(Services.id, id));
       return res.status(200).json({ success: true });
-    } catch {
+    } catch (err) {
       return res.status(500).json({ error: "Помилка видалення послуги" });
     }
   }
 
-  // --- Невиконані ---
-  if (url === "/api/services/uncompleted" && method === "GET") {
+  // --- Невиконані завдання ---
+  if (method === "GET" && url.endsWith("/api/services/uncompleted")) {
     try {
       const today = new Date();
       const response = await db
@@ -79,13 +82,13 @@ export default async function handler(req, res) {
         .leftJoin(Cars, eq(Services.carId, Cars.id))
         .where(sql`${Services.date} > ${today.toISOString()}`);
       return res.status(200).json(response);
-    } catch {
+    } catch (err) {
       return res.status(500).json({ error: "Помилка отримання невиконаних завдань" });
     }
   }
 
-  // --- Прострочені ---
-  if (url === "/api/services/expired" && method === "GET") {
+  // --- Прострочені гарантії ---
+  if (method === "GET" && url.endsWith("/api/services/expired")) {
     try {
       const today = new Date();
       const response = await db
@@ -111,11 +114,11 @@ export default async function handler(req, res) {
         .leftJoin(Users, eq(Services.userId, Users.id))
         .where(sql`${Services.warranty_expires} < ${today.toISOString()}`);
       return res.status(200).json(response);
-    } catch {
+    } catch (err) {
+      console.error("Помилка отримання прострочених гарантій:", err);
       return res.status(500).json({ error: "Помилка отримання прострочених гарантій" });
     }
   }
 
-  // --- Якщо маршрут не знайдено ---
-  return res.status(404).json({ error: "Route not found" });
+  return res.status(405).json({ error: "Method not allowed" });
 }
