@@ -1,5 +1,6 @@
-import { db } from "../../../configs/index.js";
-import { Users } from "../../../configs/schema.js";
+import { db } from "../../configs/index.js";
+import { Users } from "../../configs/schema.js";
+
 import { eq } from "drizzle-orm";
 
 export default async function handler(req, res) {
