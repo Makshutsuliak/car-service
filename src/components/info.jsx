@@ -18,12 +18,15 @@ function Info() {
   return (
     <div className="md:m-5 z-10">
       {/* Карусель */}
-      <div className="carousel">
+      <div className="carousel relative z-0">
         <Carousel>
           <CarouselContent>
             <CarouselItem>
-              <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors">
+              <div className="flex flex-col md:flex-row items-center gap-4 relative">
+                <h1 className="z-20 text-center md:text-left 
+                               text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
+                               font-bold whitespace-normal rounded-md transition-colors 
+                               leading-relaxed">
                   Ремонтуємо швидко, якісно та доступно.
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
@@ -37,7 +40,7 @@ function Info() {
             </CarouselItem>
 
             <CarouselItem>
-              <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-4 relative">
                 <div className="carousel_img w-full md:w-1/2">
                   <img
                     src="./carousel_2.jpg"
@@ -45,15 +48,21 @@ function Info() {
                     className="w-full h-auto rounded-md object-cover"
                   />
                 </div>
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors">
+                <h1 className="z-20 text-center md:text-left 
+                               text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
+                               font-bold whitespace-normal rounded-md transition-colors 
+                               leading-relaxed">
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
               </div>
             </CarouselItem>
 
             <CarouselItem>
-              <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors">
+              <div className="flex flex-col md:flex-row items-center gap-4 relative">
+                <h1 className="z-20 text-center md:text-left 
+                               text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
+                               font-bold whitespace-normal rounded-md transition-colors 
+                               leading-relaxed">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
@@ -66,11 +75,11 @@ function Info() {
               </div>
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
+          <CarouselPrevious className="z-30" />
+          <CarouselNext className="z-30" />
         </Carousel>
       </div>
-
+    
       {/* Популярні послуги */}
       <div className="mt-20 md:mt-40">
         <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-6">
