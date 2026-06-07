@@ -60,7 +60,7 @@ const Header = () => {
       <ScrollToTop />
 
       {/* меню */}
-      <div className="dropdown relative flex justify-around">
+      <div className="dropdown relative flex justify-around z-50">
         <img
           className="mx-5 cursor-pointer"
           src="./logo.svg"
