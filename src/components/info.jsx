@@ -25,8 +25,8 @@ function Info() {
               <div className="flex flex-col md:flex-row items-center gap-4 relative">
                 <h1 className="z-20 text-center md:text-left 
                                text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
-                               font-bold whitespace-normal rounded-md transition-colors 
-                               leading-extra">
+                               font-semibold whitespace-normal rounded-md transition-colors 
+                               leading-loose tracking-wide font-sans">
                   Ремонтуємо швидко, якісно та доступно.
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
@@ -50,8 +50,8 @@ function Info() {
                 </div>
                 <h1 className="z-20 text-center md:text-left 
                                text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
-                               font-bold whitespace-normal rounded-md transition-colors 
-                               leading-relaxed">
+                               font-semibold whitespace-normal rounded-md transition-colors 
+                               leading-loose tracking-wide font-sans">
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
               </div>
@@ -61,8 +61,8 @@ function Info() {
               <div className="flex flex-col md:flex-row items-center gap-4 relative">
                 <h1 className="z-20 text-center md:text-left 
                                text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
-                               font-bold whitespace-normal rounded-md transition-colors 
-                               leading-relaxed">
+                               font-semibold whitespace-normal rounded-md transition-colors 
+                               leading-loose tracking-wide font-sans">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
@@ -79,7 +79,8 @@ function Info() {
           <CarouselNext className="z-30" />
         </Carousel>
       </div>
-    
+   
+
       {/* Популярні послуги */}
       <div className="mt-20 md:mt-40">
         <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-6">
