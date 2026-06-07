@@ -20,24 +20,25 @@ function Info() {
       {/* Карусель */}
       <div className="carousel relative z-0">
         <Carousel>
-          <CarouselContent>
-            <CarouselItem>
-              <div className="flex flex-col md:flex-row items-center gap-4 relative">
-                <h1 className="z-20 text-center md:text-left 
-                               text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
-                               font-semibold whitespace-normal rounded-md transition-colors 
-                               leading-loose tracking-wide font-sans">
-                  Ремонтуємо швидко, якісно та доступно.
-                </h1>
-                <div className="carousel_img w-full md:w-1/2">
-                  <img
-                    src="./carousel_1.jpg"
-                    alt=""
-                    className="w-full h-auto rounded-md object-cover"
-                  />
-                </div>
-              </div>
-            </CarouselItem>
+          <CarouselContent><CarouselItem>
+  <div className="flex flex-col md:flex-row items-center gap-4 relative min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
+    <h1 className="z-20 text-center md:text-left 
+                   text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 
+                   font-medium whitespace-normal rounded-md transition-colors 
+                   leading-loose tracking-wide font-sans">
+      Ремонтуємо швидко, якісно та доступно.
+    </h1>
+    <div className="carousel_img w-full md:w-1/2">
+      <img
+        src="./carousel_1.jpg"
+        alt=""
+        className="w-full h-auto rounded-md object-cover"
+      />
+    </div>
+  </div>
+</CarouselItem>
+
+            
 
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4 relative">
@@ -48,21 +49,21 @@ function Info() {
                     className="w-full h-auto rounded-md object-cover"
                   />
                 </div>
-                <h1 className="z-20 text-center md:text-left 
-                               text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
-                               font-semibold whitespace-normal rounded-md transition-colors 
-                               leading-loose tracking-wide font-sans">
+    <h1 className="z-20 text-center md:text-right 
+                   text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 
+                   font-medium whitespace-normal rounded-md transition-colors 
+                   leading-loose tracking-wide font-sans">
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
               </div>
             </CarouselItem>
 
             <CarouselItem>
-              <div className="flex flex-col md:flex-row items-center gap-4 relative">
-                <h1 className="z-20 text-center md:text-left 
-                               text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 
-                               font-semibold whitespace-normal rounded-md transition-colors 
-                               leading-loose tracking-wide font-sans">
+               <div className="flex flex-col md:flex-row items-center gap-4 relative min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
+    <h1 className="z-20 text-center md:text-left 
+                   text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 
+                   font-medium whitespace-normal rounded-md transition-colors 
+                   leading-loose tracking-wide font-sans">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
