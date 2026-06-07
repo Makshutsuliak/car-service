@@ -5,7 +5,7 @@ const AdminContactPage = () => {
 
   const fetchRequests = async () => {
     try {
-      const res = await fetch("/api/contact");
+      const res = await fetch("${VITE_API_URL}/api/contact");
       const data = await res.json();
       setRequests(data);
     } catch (error) {
@@ -15,7 +15,7 @@ const AdminContactPage = () => {
   
   const deleteRequest = async (id) => {
     try {
-      await fetch(`/api/contact/${id}`, { method: "DELETE" });
+      await fetch(`${VITE_API_URL}/api/contact/${id}`, { method: "DELETE" });
       setRequests((prev) => prev.filter((req) => req.id !== id));
     } catch (error) {
       console.error("Помилка видалення запиту:", error);
