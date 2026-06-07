@@ -36,7 +36,7 @@ const ReportsPage = () => {
   });
 
   useEffect(() => {
-    fetch("/api/stats")
+    fetch("${VITE_API_URL}/api/stats")
       .then((res) => res.json())
       .then((data) =>
         setStats({
