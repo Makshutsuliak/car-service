@@ -27,7 +27,7 @@ const MasterDashboard = ({ user }) => {
 
   const fetchCarServices = async (carId) => {
     try {
-      const res = await fetch(`/api/cars/${carId}/services`);
+      const res = await fetch(`${VITE_API_URL}/api/cars/${carId}/services`);
       const data = await res.json();
       setServices(Array.isArray(data) ? data : []);
       setSelectedCar(carId);
@@ -45,7 +45,7 @@ const MasterDashboard = ({ user }) => {
       return;
     }
     try {
-      const res = await fetch(`/api/cars/search?query=${search}`);
+      const res = await fetch(`${VITE_API_URL}/api/cars/search?query=${search}`);
       const data = await res.json();
       setCars(data);
     } catch (error) {
@@ -55,7 +55,7 @@ const MasterDashboard = ({ user }) => {
 
   const addService = async (carId, serviceName, price, warrantyMonths, date, description) => {
     try {
-      await fetch("/api/services", {
+      await fetch("${VITE_API_URL}/api/services", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -77,7 +77,7 @@ const MasterDashboard = ({ user }) => {
 
   const editService = async (serviceId, updates) => {
     try {
-      await fetch(`/api/services/${serviceId}`, {
+      await fetch(`${VITE_API_URL}/api/services/${serviceId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updates),
@@ -90,7 +90,7 @@ const MasterDashboard = ({ user }) => {
 
   const deleteService = async (serviceId) => {
     try {
-      await fetch(`/api/services/${serviceId}`, { method: "DELETE" });
+      await fetch(`${VITE_API_URL}/api/services/${serviceId}`, { method: "DELETE" });
       fetchCarServices(selectedCar);
     } catch (error) {
       console.error("Помилка видалення послуги:", error);
