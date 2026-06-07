@@ -27,7 +27,7 @@ const VinPage = ({ vin, setVin }) => {
     try {
       setLoading(true);
       setError(null);
-      const res = await fetch(`/api/vin/${cleanedVin}`);
+      const res = await fetch(`${VITE_API_URL}/api/vin/${cleanedVin}`);
       const data = await res.json();
 
       if (data.error) {
