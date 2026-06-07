@@ -7,9 +7,9 @@ export default async function handler(req, res) {
     const { userId } = req.query;
     try {
       const response = await db.select().from(Cars).where(eq(Cars.user_id, userId));
-      res.status(200).json(response);
+      return res.status(200).json(response);
     } catch {
-      res.status(500).json({ error: "Помилка отримання авто" });
+      return res.status(500).json({ error: "Помилка отримання авто" });
     }
   }
 
@@ -22,14 +22,21 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "VIN має містити рівно 17 символів" });
     }
     try {
-      const existingCar = await db.select().from(Cars).where(or(eq(Cars.plate, plate), eq(Cars.vin, vin)));
+      const existingCar = await db
+        .select()
+        .from(Cars)
+        .where(or(eq(Cars.plate, plate), eq(Cars.vin, vin)));
+
       if (existingCar.length > 0) {
         return res.status(409).json({ error: "Авто з таким VIN або номером вже існує" });
       }
+
       await db.insert(Cars).values({ user_id, brand, model, plate, vin });
-      res.status(200).json({ success: true });
+      return res.status(200).json({ success: true });
     } catch {
-      res.status(500).json({ error: "Помилка додавання авто" });
+      return res.status(500).json({ error: "Помилка додавання авто" });
     }
   }
+
+  return res.status(405).json({ error: "Method not allowed" });
 }
