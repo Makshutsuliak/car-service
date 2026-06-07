@@ -5,8 +5,8 @@ import { eq, or, like } from "drizzle-orm";
 export default async function handler(req, res) {
   const { method, url, query, body } = req;
 
-  // --- Отримати авто користувача ---
-  if (method === "GET" && url.endsWith("/api/cars")) {
+  // --- GET /api/cars ---
+  if (method === "GET" && url === "/api/cars") {
     const { userId } = query;
     try {
       const response = await db.select().from(Cars).where(eq(Cars.user_id, userId));
@@ -17,8 +17,8 @@ export default async function handler(req, res) {
     }
   }
 
-  // --- Додати авто ---
-  if (method === "POST" && url.endsWith("/api/cars")) {
+  // --- POST /api/cars ---
+  if (method === "POST" && url === "/api/cars") {
     const { user_id, brand, model, plate, vin } = body;
     if (!user_id || !brand || !model || !plate || !vin) {
       return res.status(400).json({ error: "Всі поля обов'язкові" });
@@ -42,8 +42,8 @@ export default async function handler(req, res) {
     }
   }
 
-  // --- Пошук авто ---
-  if (method === "GET" && url.endsWith("/api/cars/search")) {
+  // --- GET /api/cars/search ---
+  if (method === "GET" && url === "/api/cars/search") {
     const { query: q } = query;
     try {
       const response = await db.select().from(Cars).where(or(like(Cars.plate, `%${q}%`), like(Cars.vin, `%${q}%`)));
@@ -54,10 +54,9 @@ export default async function handler(req, res) {
     }
   }
 
-  // --- Послуги для авто ---
-  if (method === "GET" && url.includes("/api/cars/") && url.endsWith("/services")) {
+  // --- GET /api/cars/:carId/services ---
+  if (method === "GET" && /^\/api\/cars\/[^/]+\/services$/.test(url)) {
     const { carId } = query;
-    console.log("Incoming carId:", carId);
     try {
       const response = await db.select().from(Services).where(eq(Services.carId, carId));
       return res.status(200).json(response);
