@@ -1,4 +1,4 @@
-import data from "@/components/Shared/Data"
+import data from "@/components/shared/data"
 
 const { Category, servicesData, faqData } = data;
   

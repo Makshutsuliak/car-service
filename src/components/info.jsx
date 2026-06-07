@@ -10,7 +10,7 @@ import {
 
 import { Link } from 'react-router-dom'
 <link rel='stylesheet' href='./index.css'></link>
-import data from "@/components/Shared/Data"
+import data from "@/components/shared/data"
 
 const { Category, servicesData, faqData } = data;
 
