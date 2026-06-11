@@ -50,17 +50,40 @@ const ServicesPage = () => {
   };
 
   const handleDownloadPDF = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element, { scale: 2 });
-    const imgData = canvas.toDataURL("image/png");
+  const element = printRef.current;
+  const canvas = await html2canvas(element, { scale: 2 });
+  const imgData = canvas.toDataURL("image/png");
 
-    const pdf = new jsPDF("p", "mm", "a4");
-    const pdfWidth = pdf.internal.pageSize.getWidth();
-    const pdfHeight = pdf.internal.pageSize.getHeight();
+  const pdf = new jsPDF("p", "mm", "a4");
+  const pdfWidth = pdf.internal.pageSize.getWidth();
+  const pdfHeight = pdf.internal.pageSize.getHeight();
 
-    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-    pdf.save("warranty-certificate.pdf");
-  };
+  const imgProps = pdf.getImageProperties(imgData);
+  const imgWidth = pdfWidth;
+  const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+
+  let position = 0;
+  if (imgHeight < pdfHeight) {
+    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+  } else {
+    // розбиваємо на кілька сторінок
+    while (position < imgHeight) {
+      pdf.addImage(
+        imgData,
+        "PNG",
+        0,
+        position * -1,
+        imgWidth,
+        imgHeight
+      );
+      position += pdfHeight;
+      if (position < imgHeight) pdf.addPage();
+    }
+  }
+
+  pdf.save("warranty-certificate.pdf");
+};
+
 
   return (
     <div className="bg-gray-50 min-h-screen p-4 sm:p-6">
