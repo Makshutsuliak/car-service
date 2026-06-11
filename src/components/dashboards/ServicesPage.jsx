@@ -148,54 +148,57 @@ const ServicesPage = () => {
 
         {/* Гарантійний талон */}
         {selectedService && (
-          <div
-            ref={printRef}
-            className="bg-white p-4 sm:p-10 rounded shadow-md mt-6 border 
-                       print:w-[210mm] print:h-[297mm] print:p-10"
-          >
-            <h3 className="text-2xl sm:text-3xl font-bold text-center mb-6">
-              Гарантійний талон
-            </h3>
+  <div
+    ref={printRef}
+    className="bg-white 
+               p-3 sm:p-6 md:p-10 
+               rounded shadow-md mt-6 border 
+               w-full 
+               print:w-[210mm] print:h-[297mm] print:p-20 print:mx-auto"
+  >
+    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-6 print:text-3xl">
+      Гарантійний талон
+    </h3>
 
-            <p className="mb-4 text-justify text-sm sm:text-base leading-relaxed">
-              Цей гарантійний талон підтверджує виконання робіт та надання послуг
-              відповідно до стандартів нашого сервісного центру. Гарантія поширюється
-              на виконані роботи та використані матеріали протягом зазначеного терміну.
-            </p>
+    <p className="mb-4 text-justify text-xs sm:text-sm md:text-base leading-relaxed print:text-base">
+      Цей гарантійний талон підтверджує виконання робіт та надання послуг
+      відповідно до стандартів нашого сервісного центру. Гарантія поширюється
+      на виконані роботи та використані матеріали протягом зазначеного терміну.
+    </p>
 
-            <div className="mb-6 text-sm sm:text-base">
-              <p><strong>Авто:</strong> {cars.find((c) => c.id === selectedCar)?.brand} {cars.find((c) => c.id === selectedCar)?.model}</p>
-              <p><strong>Номерний знак:</strong> {cars.find((c) => c.id === selectedCar)?.plate}</p>
-              <p><strong>VIN:</strong> {cars.find((c) => c.id === selectedCar)?.vin}</p>
-            </div>
+    <div className="mb-6 text-xs sm:text-sm md:text-base print:text-base">
+      <p><strong>Авто:</strong> {cars.find((c) => c.id === selectedCar)?.brand} {cars.find((c) => c.id === selectedCar)?.model}</p>
+      <p><strong>Номерний знак:</strong> {cars.find((c) => c.id === selectedCar)?.plate}</p>
+      <p><strong>VIN:</strong> {cars.find((c) => c.id === selectedCar)?.vin}</p>
+    </div>
 
-            <h4 className="text-lg sm:text-xl font-semibold mb-3">Послуга</h4>
-            <p><strong>Назва:</strong> {selectedService.serviceName}</p>
-            <p><strong>Опис:</strong> {selectedService.description || "—"}</p>
-            <p><strong>Вартість:</strong> {selectedService.price} грн</p>
-            <p><strong>Дата виконання:</strong> {new Date(selectedService.date).toLocaleDateString()}</p>
-            <p><strong>Гарантія дійсна до:</strong> {new Date(selectedService.warranty_expires).toLocaleDateString()}</p>
+    <h4 className="text-sm sm:text-lg md:text-xl font-semibold mb-3 print:text-xl">Послуга</h4>
+    <p><strong>Назва:</strong> {selectedService.serviceName}</p>
+    <p><strong>Опис:</strong> {selectedService.description || "—"}</p>
+    <p><strong>Вартість:</strong> {selectedService.price} грн</p>
+    <p><strong>Дата виконання:</strong> {new Date(selectedService.date).toLocaleDateString()}</p>
+    <p><strong>Гарантія дійсна до:</strong> {new Date(selectedService.warranty_expires).toLocaleDateString()}</p>
 
-            <p className="mt-6 text-xs sm:text-sm text-gray-600 text-justify leading-relaxed">
-              Умови гарантії: гарантія не поширюється на випадки неправильного використання,
-              механічні пошкодження, втручання сторонніх осіб або використання неякісних
-              витратних матеріалів. Для отримання гарантійного обслуговування необхідно
-              пред’явити цей талон.
-            </p>
+    <p className="mt-6 text-[10px] sm:text-xs md:text-sm text-gray-600 text-justify leading-relaxed print:text-sm">
+      Умови гарантії: гарантія не поширюється на випадки неправильного використання,
+      механічні пошкодження, втручання сторонніх осіб або використання неякісних
+      витратних матеріалів. Для отримання гарантійного обслуговування необхідно
+      пред’явити цей талон.
+    </p>
 
-            <div className="mt-20 flex justify-between items-end">
-              <div>
-                <p><strong>Виконавець:</strong> ____________________</p>
-                <p><strong>Дата видачі:</strong> {new Date().toLocaleDateString()}</p>
-              </div>
-              <div className="text-right">
-                <p><strong>Керівник:</strong> Ініціали К.К.</p>
-                <p><strong>Печатка:</strong></p>
-                <div className="border w-24 h-24 inline-block"></div>
-              </div>
-            </div>
-          </div>
-        )}
+    <div className="mt-16 sm:mt-20 flex justify-between items-end">
+      <div>
+        <p><strong>Виконавець:</strong> ____________________</p>
+        <p><strong>Дата видачі:</strong> {new Date().toLocaleDateString()}</p>
+      </div>
+      <div className="text-right">
+        <p><strong>Керівник:</strong> Ініціали К.К.</p>
+        <p><strong>Печатка:</strong></p>
+        <div className="border w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 inline-block"></div>
+      </div>
+    </div>
+  </div>
+)}
 
        {selectedService && (
           <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
