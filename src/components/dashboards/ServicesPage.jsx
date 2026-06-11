@@ -54,20 +54,16 @@ const ServicesPage = () => {
   const canvas = await html2canvas(element, { scale: 2 });
   const imgData = canvas.toDataURL("image/png");
 
-  // створюємо PDF з розміром під контент
   const imgProps = {
     width: canvas.width,
     height: canvas.height,
   };
 
-  // переводимо пікселі у мм (1px ~ 0.264583 мм)
   const pdfWidth = imgProps.width * 0.264583;
   const pdfHeight = imgProps.height * 0.264583;
 
-  // створюємо PDF з нестандартним розміром сторінки
   const pdf = new jsPDF("p", "mm", [pdfWidth, pdfHeight]);
 
-  // додаємо картинку без розривів
   pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
 
   pdf.save("Гарантійний талон.pdf");
@@ -207,7 +203,7 @@ const ServicesPage = () => {
       <div className="text-right">
         <p><strong>Керівник:</strong> Ініціали К.К.</p>
         <p><strong>Печатка:</strong></p>
-        <div className="border p-5 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 inline-block"></div>
+        <div className="border m-3 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 inline-block"></div>
       </div>
     </div>
   </div>
