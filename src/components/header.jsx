@@ -56,55 +56,72 @@ const Header = () => {
   };
 
   return (
-    <div className='flex justify-between items-center shadow-sm p-5 m-5 mb-[100px] lg:mb-[0]'>
-      <ScrollToTop />
+    <div className="flex flex-col md:flex-row justify-between items-center 
+                shadow-sm p-3 md:p-5 m-3 md:m-5 
+                mb-[60px] lg:mb-[0] w-full max-w-[1200px] mx-auto">
+  <ScrollToTop />
 
-      {/* меню */}
-      <div className="dropdown relative flex justify-around z-50">
-        <img
-          className="mx-5 cursor-pointer"
-          src="./logo.svg"
-          alt="Логотип"
-          width={150}
-          height={300}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        />
+  {/* Логотип + меню */}
+  <div className="dropdown relative flex flex-col md:flex-row justify-around w-full md:w-auto">
+    <img
+      className="mx-3 cursor-pointer"
+      src="./logo.svg"
+      alt="Логотип"
+      width={120}
+      height={200}
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+    />
 
-        <ul
-          className={`absolute lg:static top-8 left-0 w-full sm:w-auto sm:bg-white shadow-md md:shadow-none lg:flex gap-16 text-center transition-all duration-300 ${isMenuOpen ? "block" : "hidden lg:flex"}`}
-        >
-          <Link to={"/"}>
-            <li className="bg-white dropdown-item text-primary font-medium hover:scale-105 transition-all cursor-pointer p-3 md:p-0">
-              Головна
-            </li>
-          </Link>
-          <Link to={"/complexservice"}>
-            <li className="bg-white text-primary dropdown-item font-medium hover:scale-105 transition-all cursor-pointer p-3 md:p-0">
-              Послуги СТО
-            </li>
-          </Link>
-          <Link to={"/contactform"}>
-            <li className="bg-white text-primary dropdown-item font-medium hover:scale-105 transition-all cursor-pointer bg-color-primary p-3 md:p-0">
-              Записатись на обслуговування
-            </li>
-          </Link>
-          <Link to={"/questions"}>
-            <li className="bg-white text-primary dropdown-item font-medium hover:scale-105 transition-all cursor-pointer bg-color-primary p-3 md:p-0">
-              Відповіді на часті питання
-            </li>
-          </Link>
-        </ul>
-      </div>
+    <ul
+      className={`absolute md:static top-8 left-0 w-full md:w-auto 
+                  sm:bg-white shadow-md md:shadow-none 
+                  md:flex gap-6 text-center transition-all duration-300 
+                  ${isMenuOpen ? "block" : "hidden md:flex"}`}
+    >
+      <Link to={"/"}>
+        <li className="dropdown-item text-primary font-medium 
+                       hover:scale-105 transition-all cursor-pointer 
+                       p-2 md:p-0">
+          Головна
+        </li>
+      </Link>
+      <Link to={"/complexservice"}>
+        <li className="dropdown-item text-primary font-medium 
+                       hover:scale-105 transition-all cursor-pointer 
+                       p-2 md:p-0">
+          Послуги СТО
+        </li>
+      </Link>
+      <Link to={"/contactform"}>
+        <li className="dropdown-item text-primary font-medium 
+                       hover:scale-105 transition-all cursor-pointer 
+                       p-2 md:p-0">
+          Записатись
+        </li>
+      </Link>
+      <Link to={"/questions"}>
+        <li className="dropdown-item text-primary font-medium 
+                       hover:scale-105 transition-all cursor-pointer 
+                       p-2 md:p-0">
+          Відповіді на питання
+        </li>
+      </Link>
+    </ul>
+  </div>
 
-      {isSignedIn ? (
-        <div className='flex items-center gap-5'>
-          <UserButton />
-          <Link to="/account"><Button>Мій кабінет</Button></Link>
-        </div>
-      ) : (
-        <SignInButton mode='modal' forceRedirectUrl='/'><Button>Увійти</Button></SignInButton>
-      )}
+  {/* Кнопки справа */}
+  {isSignedIn ? (
+    <div className='flex items-center gap-3 mt-3 md:mt-0'>
+      <UserButton />
+      <Link to="/account"><Button size="sm">Мій кабінет</Button></Link>
     </div>
+  ) : (
+    <SignInButton mode='modal' forceRedirectUrl='/'>
+      <Button size="sm">Увійти</Button>
+    </SignInButton>
+  )}
+</div>
+
   );
 };
 
