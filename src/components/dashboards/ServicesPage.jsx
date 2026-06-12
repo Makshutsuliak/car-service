@@ -160,10 +160,11 @@ const ServicesPage = () => {
   <div
     ref={printRef}
     className="bg-white 
-               p-3 sm:p-6 md:p-10 
-               rounded shadow-md mt-6 border 
-               w-full 
-               print:w-[210mm] print:h-[297mm] print:p-20 print:mx-auto"
+           p-3 sm:p-6 md:p-10 
+           rounded shadow-md mt-6 border 
+           w-full max-w-[800px] mx-auto
+           print:w-[210mm] print:h-[297mm] print:p-20 print:mx-auto"
+
   >
     <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-6 print:text-3xl">
       Гарантійний талон
