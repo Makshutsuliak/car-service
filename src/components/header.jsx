@@ -67,7 +67,7 @@ const Header = () => {
         <ul
           className={`absolute md:static top-14 left-0 w-full md:w-auto 
                       sm:bg-white shadow-md md:shadow-none 
-                      md:flex gap-6 text-center transition-all duration-300 
+                      md:flex z-50 gap-6 text-center transition-all duration-300 
                       ${isMenuOpen ? "block" : "hidden md:flex"}`}
         >
           <Link to={"/"}><li className="dropdown-item text-[var(--text-secondary)]">Головна</li></Link>
