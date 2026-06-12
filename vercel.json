@@ -1,24 +1,11 @@
 {
   "version": 2,
+  "outputDirectory": "dist",
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/clerk/(.*)",
-      "dest": "/clerk/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    },
-    
-    { "src": "/(.*\\.png|.*\\.jpg|.*\\.jpeg|.*\\.svg|.*\\.gif)", "dest": "/$1" },
-  ],
-  "outputDirectory": "dist"
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/clerk/(.*)", "dest": "/clerk/$1" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/(.*\\.(png|jpg|jpeg|svg|gif|ico|css|js))", "dest": "/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
