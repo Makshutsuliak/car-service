@@ -141,7 +141,7 @@ const Category =[
         { "id": 4, "description": "Огляд стану шин і колісних дисків" }
        
       ],
-      "image": "@/public/category_1.png"
+      "image": "public/category_1.png"
     },
     {
       "id": 2,
@@ -151,7 +151,7 @@ const Category =[
         { "id": 2, "description": "Заміна ременів, ланцюгів ГРМ, помпи" },        
         { "id": 3, "description": "Усунення стуків та вібрацій у підвісці" }
       ],
-      "image": "@/public/category_2.png"
+      "image": "/category_2.png"
     },
     {
       "id": 3,
@@ -162,7 +162,7 @@ const Category =[
         { "id": 4, "description": "Полірування фар і кузова, відновлення лакофарбового покриття" }
       ],
         
-      "image": "@/public/category_3.png"
+      "image": "./category_3.png"
     },
     {
       "id": 4,
