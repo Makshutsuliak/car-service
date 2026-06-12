@@ -17,7 +17,7 @@ function Info() {
   return (
     <div className="md:m-5 z-10">
       {/* Карусель */}
-      <div className="carousel relative px-6 h-3/4"> 
+      <div className="carousel relative px-6 h-4/5"> 
         <Carousel>
           <CarouselContent>
             <CarouselItem>
