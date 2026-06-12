@@ -141,7 +141,7 @@ const Category =[
         { "id": 4, "description": "Огляд стану шин і колісних дисків" }
        
       ],
-      "image": "public/category_1.png"
+      "image": "./../public/category_1.png"
     },
     {
       "id": 2,
@@ -151,7 +151,7 @@ const Category =[
         { "id": 2, "description": "Заміна ременів, ланцюгів ГРМ, помпи" },        
         { "id": 3, "description": "Усунення стуків та вібрацій у підвісці" }
       ],
-      "image": "/category_2.png"
+      "image": "./../../public/category_2.png"
     },
     {
       "id": 3,
@@ -173,7 +173,7 @@ const Category =[
         { "id": 4, "description": "Відновлення подушок безпеки (SRS) та систем пасивної безпеки"}
         
       ],
-      "image": "@/public/category_4.png"
+      "image": "@/category_4.png"
     }
   ]
   const faqData = [
