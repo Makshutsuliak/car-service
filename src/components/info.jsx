@@ -17,7 +17,7 @@ function Info() {
   return (
     <div className="md:m-5 z-10">
       {/* Карусель */}
-      <div className="carousel relative px-6"> {/* додано бокові відступи */}
+      <div className="carousel relative px-6 h-3/4"> 
         <Carousel>
           <CarouselContent>
             <CarouselItem>
@@ -27,7 +27,7 @@ function Info() {
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
                   <img
-                    src="./public/carousel_1.jpg" // тепер з public
+                    src="/carousel_1.jpg" 
                     alt="Ремонт авто"
                     className="w-full h-auto rounded-md object-cover"
                   />
@@ -39,7 +39,7 @@ function Info() {
               <div className="flex flex-col md:flex-row items-center gap-4">
                 <div className="carousel_img w-full md:w-1/2">
                   <img
-                    src="./public/carousel_2.jpg"
+                    src="/carousel_2.jpg"
                     alt="СТО"
                     className="w-full h-auto rounded-md object-cover"
                   />
@@ -57,7 +57,7 @@ function Info() {
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
                   <img
-                    src="./public/carousel_3.jpg"
+                    src="c/carousel_3.jpg"
                     alt="Сервіс авто"
                     className="w-full h-auto rounded-md object-cover"
                   />
