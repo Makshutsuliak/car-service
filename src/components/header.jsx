@@ -72,8 +72,8 @@ const Header = () => {
         >
           <Link to={"/"}><li className="dropdown-item text-[var(--text-secondary)]">Головна</li></Link>
           <Link to={"/complexservice"}><li className="dropdown-item text-[var(--text-secondary)]">Послуги СТО</li></Link>
-          <Link to={"/contactform"}><li className="dropdown-item text-[var(--text-secondary)]">Записатись</li></Link>
-          <Link to={"/questions"}><li className="dropdown-item text-[var(--text-secondary)]">Відповіді на питання</li></Link>
+          <Link to={"/contactform"}><li className="dropdown-item text-[var(--text-secondary)]">Записатись на обслуговування</li></Link>
+          <Link to={"/questions"}><li className="dropdown-item text-[var(--text-secondary)]">Відповіді на часті питання</li></Link>
 
           {/* Авторизація тільки на мобільних */}
           <li className="block md:hidden mt-2">
