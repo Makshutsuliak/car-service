@@ -9,82 +9,70 @@ import {
 } from "@/components/ui/carousel"
 
 import { Link } from 'react-router-dom'
-<link rel='stylesheet' href='./index.css'></link>
 import data from "@/components/shared/data"
 
-const { Category, servicesData, faqData } = data;
+const { Category } = data;
 
 function Info() {
   return (
     <div className="md:m-5 z-10">
       {/* Карусель */}
-      <div className="carousel relative z-0">
+      <div className="carousel relative px-6"> {/* додано бокові відступи */}
         <Carousel>
-          <CarouselContent><CarouselItem>
-  <div className="flex flex-col md:flex-row items-center gap-4 relative min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
-    <h1 className="z-20 text-center md:text-left 
-                   text-sm sm:text-base md:text-lg   
-                   font-sm whitespace-normal rounded-md transition-colors 
-                   leading-loose tracking-wide font-sans">
-      Ремонтуємо швидко, якісно та доступно.
-    </h1>
-    <div className="carousel_img w-full md:w-1/2">
-      <img
-        src="./carousel_1.jpg"
-        alt=""
-        className="w-full h-auto rounded-md object-cover"
-      />
-    </div>
-  </div>
-</CarouselItem>
-
-            
-
+          <CarouselContent>
             <CarouselItem>
-              <div className="flex flex-col md:flex-row items-center gap-4 relative">
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
+                  Ремонтуємо швидко, якісно та доступно.
+                </h1>
                 <div className="carousel_img w-full md:w-1/2">
                   <img
-                    src="./carousel_2.jpg"
-                    alt=""
+                    src="/carousel_1.jpg" // тепер з public
+                    alt="Ремонт авто"
                     className="w-full h-auto rounded-md object-cover"
                   />
                 </div>
-    <h1 className="z-20 text-center md:text-right 
-                   text-sm sm:text-base md:text-lg  
-                   font-sm whitespace-normal rounded-md transition-colors 
-                   leading-loose tracking-wide font-sans">
+              </div>
+            </CarouselItem>
+
+            <CarouselItem>
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <div className="carousel_img w-full md:w-1/2">
+                  <img
+                    src="/carousel_2.jpg"
+                    alt="СТО"
+                    className="w-full h-auto rounded-md object-cover"
+                  />
+                </div>
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
               </div>
             </CarouselItem>
 
             <CarouselItem>
-               <div className="flex flex-col md:flex-row items-center gap-4 relative min-h-[200px] sm:min-h-[250px] md:min-h-[300px]">
-    <h1 className="z-20 text-center md:text-left 
-                   text-sm sm:text-base md:text-lg 
-                   font-sm whitespace-normal rounded-md transition-colors 
-                   leading-loose tracking-wide font-sans">
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
                   <img
-                    src="./carousel_3.jpg"
-                    alt=""
+                    src="/carousel_3.jpg"
+                    alt="Сервіс авто"
                     className="w-full h-auto rounded-md object-cover"
                   />
                 </div>
               </div>
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious className="z-30" />
-          <CarouselNext className="z-30" />
+          <CarouselPrevious className="left-2 md:left-4" /> {/* відступи */}
+          <CarouselNext className="right-2 md:right-4" />   {/* відступи */}
         </Carousel>
       </div>
-   
 
       {/* Популярні послуги */}
       <div className="mt-20 md:mt-40">
-        <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-6">
+        <h2 className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
           Найпопулярніші послуги
         </h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -100,10 +88,10 @@ function Info() {
                   className="w-12 h-12 md:w-16 md:h-16"
                 />
               </div>
-              <h3 className="uppercase font-bold text-lg md:text-xl mb-2 text-center">
+              <h3 className="uppercase font-bold text-lg md:text-xl mb-2 text-center leading-relaxed">
                 {category.title}
               </h3>
-              <ul className="list-inside text-sm md:text-base mb-4 text-center list-none ">
+              <ul className="list-inside text-sm md:text-base mb-4 text-center list-none leading-relaxed">
                 {category.points.map((point, pointIndex) => (
                   <li key={pointIndex}>{point.description}</li>
                 ))}
@@ -124,7 +112,6 @@ function Info() {
           ))}
         </ul>
       </div>
-
     </div>
   );
 }
