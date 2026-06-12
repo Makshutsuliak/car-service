@@ -22,7 +22,7 @@ function Info() {
           <CarouselContent>
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-2xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
                   Ремонтуємо швидко, якісно та доступно.
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
@@ -57,7 +57,7 @@ function Info() {
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
                   <img
-                    src="c/carousel_3.jpg"
+                    src="/carousel_3.jpg"
                     alt="Сервіс авто"
                     className="w-full h-auto rounded-md object-cover"
                   />
