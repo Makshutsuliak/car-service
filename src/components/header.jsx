@@ -70,10 +70,10 @@ const Header = () => {
                       md:flex gap-6 text-center transition-all duration-300 
                       ${isMenuOpen ? "block" : "hidden md:flex"}`}
         >
-          <Link to={"/"}><li className="dropdown-item">Головна</li></Link>
-          <Link to={"/complexservice"}><li className="dropdown-item">Послуги СТО</li></Link>
-          <Link to={"/contactform"}><li className="dropdown-item">Записатись</li></Link>
-          <Link to={"/questions"}><li className="dropdown-item">Відповіді на питання</li></Link>
+          <Link to={"/"}><li className="dropdown-item text-[var(--text-secondary)]">Головна</li></Link>
+          <Link to={"/complexservice"}><li className="dropdown-item text-[var(--text-secondary)]">Послуги СТО</li></Link>
+          <Link to={"/contactform"}><li className="dropdown-item text-[var(--text-secondary)]">Записатись</li></Link>
+          <Link to={"/questions"}><li className="dropdown-item text-[var(--text-secondary)]">Відповіді на питання</li></Link>
 
           {/* Авторизація тільки на мобільних */}
           <li className="block md:hidden mt-2">
