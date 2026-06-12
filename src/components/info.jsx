@@ -22,7 +22,7 @@ function Info() {
           <CarouselContent>
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-4xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
                   Ремонтуємо швидко, якісно та доступно.
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
@@ -44,7 +44,7 @@ function Info() {
                     className="w-full h-auto rounded-md object-cover"
                   />
                 </div>
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-6xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
               </div>
@@ -52,7 +52,7 @@ function Info() {
 
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
+                <h1 className="text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-5xl font-bold whitespace-normal rounded-md transition-colors leading-relaxed">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
                 <div className="carousel_img w-full md:w-1/2">
