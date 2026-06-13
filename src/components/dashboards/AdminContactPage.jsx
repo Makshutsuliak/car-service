@@ -15,7 +15,7 @@ const AdminContactPage = () => {
   
   const deleteRequest = async (id) => {
     try {
-      await fetch(`/api/contact/${id}`, { method: "DELETE" });
+      await fetch(`/api/contact?id=${id}`, { method: "DELETE" });
       setRequests((prev) => prev.filter((req) => req.id !== id));
     } catch (error) {
       console.error("Помилка видалення запиту:", error);
