@@ -23,9 +23,9 @@ function Info() {
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4">
                 <h1 className="text-center md:text-left 
-                 text-sm xs:text-base sm:text-xl md:text-2xl lg:text-6xl 
+                 text-sm xs:text-base sm:text-xl md:text-2xl lg:text-5xl 
                  w-full xs:w-[90%] sm:w-[70%] 
-                 max-w-[200px] mx-auto font-bold 
+                 mx-auto font-bold 
                  whitespace-normal break-words leading-relaxed">
                   Ремонтуємо швидко, якісно та доступно.
                 </h1>
@@ -50,9 +50,9 @@ function Info() {
                   />
                 </div>
                 <h1 className="text-center md:text-left 
-                 text-sm xs:text-base sm:text-xl md:text-2xl lg:text-6xl 
+                 text-sm xs:text-base sm:text-xl md:text-2xl lg:text-5xl 
                  w-full xs:w-[90%] sm:w-[70%] 
-                 max-w-[200px] mx-auto font-bold 
+                 mx-auto font-bold 
                  whitespace-normal break-words leading-relaxed">
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
@@ -61,13 +61,15 @@ function Info() {
 
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-center md:text-left 
-                 text-sm xs:text-base sm:text-xl md:text-2xl lg:text-6xl 
+                <h1 className="lg:text-center md:text-left 
+                 text-sm  sm:text-xl md:text-2xl lg:text-5xl 
                  w-full xs:w-[90%] sm:w-[70%] 
-                 max-w-[200px] mx-auto font-bold 
+                 mx-auto font-bold 
                  whitespace-normal break-words leading-relaxed">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
+                <p>Відмінний сервіс для будь-якого авто — завжди поруч!
+                </p>
                 <div className="carousel_img w-full md:w-1/2">
                   <img
                     src="/carousel_3.jpg"
@@ -78,8 +80,8 @@ function Info() {
               </div>
             </CarouselItem>
           </CarouselContent>
-          <CarouselPrevious className="left-2 md:left-4" /> {/* відступи */}
-          <CarouselNext className="right-2 md:right-4" />   {/* відступи */}
+          <CarouselPrevious className="left-2 md:left-4" />
+          <CarouselNext className="right-2 md:right-4" />
         </Carousel>
       </div>
 
