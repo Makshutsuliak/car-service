@@ -22,13 +22,19 @@ function Info() {
           <CarouselContent>
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="text-center md:text-left 
-                 text-sm xs:text-base sm:text-xl md:text-2xl lg:text-5xl 
+              <h1 className="hidden xs:block lg:text-center md:text-left 
+                 text-sm sm:text-xl md:text-2xl lg:text-5xl 
                  w-full xs:w-[90%] sm:w-[70%] 
                  mx-auto font-bold 
-                 whitespace-normal break-words leading-relaxed">
+                 whitespace-normal break-words leading-relaxed">                  
                   Ремонтуємо швидко, якісно та доступно.
                 </h1>
+
+                <p className="block xs:hidden text-center font-bold px-4">
+                Ремонтуємо швидко, якісно та доступно.
+                </p>
+
+               
                 <div className="carousel_img w-full md:w-1/2">
                   <img
                     src="/carousel_1.jpg"
@@ -48,28 +54,37 @@ function Info() {
                     alt="СТО"
                     className="w-full h-auto rounded-md object-cover"
                   />
-                </div>
-                <h1 className="text-center md:text-left 
-                 text-sm xs:text-base sm:text-xl md:text-2xl lg:text-5xl 
+                </div>                
+                <h1 className="hidden xs:block lg:text-center md:text-left 
+                 text-sm sm:text-xl md:text-2xl lg:text-5xl 
                  w-full xs:w-[90%] sm:w-[70%] 
                  mx-auto font-bold 
                  whitespace-normal break-words leading-relaxed">
+                  
                   СТО, яке любить вашу машину так, як і ви
                 </h1>
+
+                <p className="block xs:hidden text-center font-bold px-4">
+                СТО, яке любить вашу машину так, як і ви
+                </p>
+
               </div>
             </CarouselItem>
 
             <CarouselItem>
               <div className="flex flex-col md:flex-row items-center gap-4">
-                <h1 className="lg:text-center md:text-left 
-                 text-sm  sm:text-xl md:text-2xl lg:text-5xl 
+                <h1 className="hidden xs:block lg:text-center md:text-left 
+                 text-sm sm:text-xl md:text-2xl lg:text-5xl 
                  w-full xs:w-[90%] sm:w-[70%] 
                  mx-auto font-bold 
                  whitespace-normal break-words leading-relaxed">
                   Відмінний сервіс для будь-якого авто — завжди поруч!
                 </h1>
-                <p>Відмінний сервіс для будь-якого авто — завжди поруч!
+
+                <p className="block xs:hidden text-center font-bold px-4">
+                  Відмінний сервіс для будь-якого авто — завжди поруч!
                 </p>
+
                 <div className="carousel_img w-full md:w-1/2">
                   <img
                     src="/carousel_3.jpg"
@@ -78,6 +93,7 @@ function Info() {
                   />
                 </div>
               </div>
+
             </CarouselItem>
           </CarouselContent>
           <CarouselPrevious className="left-2 md:left-4" />
