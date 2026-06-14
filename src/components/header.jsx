@@ -49,7 +49,7 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center 
-                      shadow-sm p-3 
+                      shadow-sm p-3 md:p-5 m-3 md:m-5 
                       mb-[60px] w-[50%]lg:mb-[0]  relative">
       <ScrollToTop />
 
@@ -88,7 +88,6 @@ const Header = () => {
         </ul>
       </div>
 
-      {/* UserButton завжди справа */}
       <div className="flex items-center gap-3 absolute right-3 top-3 md:static">
         <UserButton />
         {isSignedIn ? (
