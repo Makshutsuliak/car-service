@@ -49,7 +49,7 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center 
-                      shadow-sm p-3 md:p-5 m-3 md:m-5 
+                      shadow-sm p-3 
                       mb-[60px] w-[50%]lg:mb-[0]  relative">
       <ScrollToTop />
 
